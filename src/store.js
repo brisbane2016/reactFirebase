@@ -11,7 +11,7 @@ export default function configureStore(initialState = {}) {
   return createStore(
     rootReducer,
     //    initialState,
- 
+ // make debug tools redux
     composeEnhancers(applyMiddleware(thunk))
   );
 }
