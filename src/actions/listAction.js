@@ -11,11 +11,13 @@ export const startSetListAction = () => {
 
 
     return (dispatch, getState) => {
-        return database.ref('options').once('value').then((snapshot) => {
+        const uid = getState().authReducer.uid;
+        // update firebase database and check auth ID when use options table
+        return database.ref(`options/${uid}`).once('value').then((snapshot) => {
             const list = [];
             snapshot.forEach((childSnapshot) => {
                 list.push({
-                    referenceId: childSnapshot.key,
+                    referenceId: uid,
                     ...childSnapshot.val()
                 });
             });
@@ -35,13 +37,13 @@ export const addListAction = (option) => ({
 
 export const startAddListAction = (option) => {
 
-
+   
     return (dispatch, getState) => {
-
+        const uid = getState().authReducer.uid;
         const listOption = { id: uuid.v4(), name: option };
         
 
-        return database.ref(`options`).push(listOption).then(
+        return database.ref(`options/${uid}`).push(listOption).then(
 
             (ref) => {
                 dispatch(addListAction({referenceId:ref.key,...listOption}));
@@ -63,13 +65,13 @@ export const removeListAction = (referenceId) => ({
 
 export const startRemoveListAction = (referenceId) => {
 
-
     return (dispatch, getState) => {
 
+        const uid = getState().authReducer.uid;
       console.log(referenceId);
      //   const listOption = getState.options.find(x=>x.id === id);
 
-        return database.ref(`options/${referenceId}`).remove().then(
+        return database.ref(`options/${uid}/${referenceId}`).remove().then(
 
             (ref) => {
                 dispatch(removeListAction(referenceId));
@@ -93,9 +95,10 @@ export const editListAction = (referenceId,option) => ({
 
    
 export const startEditListAction= (referenceId,option)=>{
-
+   
     return (dispatch, getState) => {
-           return database.ref(`options/${referenceId}`).update(option).then( (ref) => {
+        const uid = getState().authReducer.uid;
+           return database.ref(`options/${uid}/${referenceId}`).update(option).then( (ref) => {
 
 
                    dispatch(editListAction(referenceId,option));
