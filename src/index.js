@@ -25,6 +25,7 @@ const store = configureStore();
         </Provider>
     );
 
+    // redo render message,when firebase login ,render different layout
 
     ReactDOM.render(<p>Loading ... </p>, document.getElementById('root'));
 
