@@ -7,7 +7,7 @@ const Header = () => (
     <div>
 
         <h1>React Form with redux </h1>
-        <p>why we need this rubbush?</p>
+        <h2>why we need this rubbush?</h2>
         <NavLink to="/" activeClassName="is-active" >form</NavLink> || 
         <NavLink to="/about">about</NavLink> || 
         <NavLink to={`/help/${id}`}>help</NavLink> || 

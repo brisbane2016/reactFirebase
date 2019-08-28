@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+//import './index.css';
+import 'normalize.css/normalize.css';
+import './styles.scss';
+
 //import ReactForm from './components/ReactForm';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
