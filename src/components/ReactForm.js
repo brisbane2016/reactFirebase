@@ -87,8 +87,11 @@ class ReactForm extends React.Component {
         console.log(this.state.selectOption);
 
         return (
-            <div>
-            
+            <div className="container">
+
+
+                <div className="fix-container">
+
                 <Action
                     handleRemoveAll={this.handleRemoveAll}
                     handleWhatIdo={this.handleWhatIdo}
@@ -115,6 +118,9 @@ class ReactForm extends React.Component {
 
                 <button onClick={this.simpleAction}>Test redux action</button>
 
+                </div>
+            
+               
                 <pre>
                     {
                         JSON.stringify(this.props)

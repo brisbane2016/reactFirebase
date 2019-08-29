@@ -12,7 +12,7 @@ export const PublicRoute = ({
         <Route {...rest} component={(props) => (
     
             isAuthenticated ? (
-                <Redirect to="/dashboard" />
+                <Redirect to="/reactform" />
             ) : (
                     <Component {...props} />
                 )
@@ -23,7 +23,7 @@ export const PublicRoute = ({
     );
 
 const mapStateToProps = (state) => ({
-    isAuthenticated: false
+    isAuthenticated: !!state.authReducer.uid
 
 });
 
