@@ -46,14 +46,14 @@ const store = configureStore();
 
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-            //console.log('login'+user.uid);
+            console.log('login'+user.uid);
             store.dispatch(login(user.uid));
-            //console.log(store.getState());
+            console.log(store.getState());
             store.dispatch(startSetListAction()).then(() => {
 
                 renderApp();
 
-                //console.log('inside');
+                console.log('inside');
                 if (history.location.pathname === '/') {
                     history.push('/reactform');
 

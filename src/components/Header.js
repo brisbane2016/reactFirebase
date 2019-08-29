@@ -1,7 +1,8 @@
 import React from 'react';
-//import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 
-import { Navbar, Nav} from 'react-bootstrap';
+import { Navbar,Nav} from 'react-bootstrap';
+import { LinkContainer } from "react-router-bootstrap";
 const id = 5;
 
 const Header = () => (
@@ -11,17 +12,31 @@ const Header = () => (
 
             <h1>React Form with redux </h1>
             <h2>why we need this rubbush?</h2>
-         
+
         <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="/" >React-Bootstrap</Navbar.Brand>
+
+            <Navbar.Brand>
+                <NavLink to ="/"> React-Bootstrap</NavLink>
+            </Navbar.Brand>
+
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="/" activeClassName="is-active">Form</Nav.Link>
-                    <Nav.Link href="/about">about</Nav.Link>
-                    <Nav.Link href={`/help/${id}`}>help</Nav.Link>
-                    <Nav.Link href="/firebase">firebase</Nav.Link>
-                    <Nav.Link href="/firebasequery">firebasequery</Nav.Link>
+                   
+                        <Nav.Link> <NavLink to="/">Form   </NavLink></Nav.Link>
+                 
+                   
+                        <Nav.Link> <NavLink to="/about">about</NavLink></Nav.Link>
+                    
+                   
+          
+                        <Nav.Link> <NavLink to={`/help/${id}`}>Help     </NavLink></Nav.Link>
+               
+
+                  
+                        <Nav.Link> <NavLink to="/firebase">firebase</NavLink></Nav.Link> 
+                        <Nav.Link> <NavLink to="/firebasequery">firebasequery</NavLink></Nav.Link> 
                 </Nav>
 
             </Navbar.Collapse>
@@ -44,4 +59,11 @@ export default Header;
 <NavLink to="/firebase">Firebase</NavLink> ||
 <NavLink to="/firebasequery">Firebase - Query</NavLink>
 
+
+
+                    <Nav.Link href="/" >Form</Nav.Link>
+                    <Nav.Link tag={NavLink} to="/about">about</Nav.Link>
+                    <Nav.Link href={`/help/${id}`}>help</Nav.Link>
+                    <Nav.Link href="/firebase">firebase</Nav.Link>
+                    <Nav.Link href="/firebasequery">firebasequery</Nav.Link>
 */
