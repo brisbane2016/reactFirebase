@@ -30,6 +30,7 @@ const postcssNormalize = require('postcss-normalize');
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
 // makes for a smoother build process.
 const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== 'false';
@@ -400,7 +401,7 @@ module.exports = function(webpackEnv) {
               exclude: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
-                sourceMap: isEnvProduction && shouldUseSourceMap,
+                sourceMap: true,
               }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -414,7 +415,7 @@ module.exports = function(webpackEnv) {
               test: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
-                sourceMap: isEnvProduction && shouldUseSourceMap,
+                sourceMap: true,
                 modules: true,
                 getLocalIdent: getCSSModuleLocalIdent,
               }),

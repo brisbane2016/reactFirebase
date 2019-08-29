@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Header';
+//import Header from '../Header';
 import database from '../../firebase';
 
 
@@ -75,7 +75,7 @@ class FirebaseQuery extends React.Component {
         console.log(JSON.stringify(this.state.dataset));
         return (
             <div>
-                <Header />
+               
                 <p>1.show all user informtion
                     
                    ------- <button onClick={this.setOne}>set1</button>

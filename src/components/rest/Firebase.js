@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../../components/Header';
+//import Header from '../../components/Header';
 import database from '../../firebase';
 import uuid from 'uuid';
 
@@ -103,7 +103,7 @@ class Firebase extends React.Component {
 
             <div>
 
-                <Header />
+              
 
                 <p>firebase testing</p>
                 <p>initial Dataset , SetDate </p>

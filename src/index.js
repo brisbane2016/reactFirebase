@@ -12,6 +12,8 @@ import { startSetListAction } from './actions/listAction';
 import { login, logout } from './actions/authAction';
 import AppRouter, { history } from './routers/AppRouter';
 import { firebase } from './firebase';
+//import 'bootstrap/dist/css/bootstrap.min.css';
+
 //
 //ReactDOM.render(<ReactForm />, document.getElementById('root'));
 // new starts
@@ -44,14 +46,14 @@ const store = configureStore();
 
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-            console.log('login'+user.uid);
+            //console.log('login'+user.uid);
             store.dispatch(login(user.uid));
-            console.log(store.getState());
+            //console.log(store.getState());
             store.dispatch(startSetListAction()).then(() => {
 
                 renderApp();
 
-                console.log('inside');
+                //console.log('inside');
                 if (history.location.pathname === '/') {
                     history.push('/reactform');
 

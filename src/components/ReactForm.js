@@ -9,6 +9,8 @@ import { simpleAction } from '../actions/simpleAction';
 import { startAddListAction, startRemoveListAction, startEditListAction } from '../actions/listAction';
 import configureStore from '../store';
 
+import { Button } from 'react-bootstrap';
+
 const xstore = configureStore();
 
 class ReactForm extends React.Component {
@@ -116,7 +118,7 @@ class ReactForm extends React.Component {
 
                 />
 
-                <button onClick={this.simpleAction}>Test redux action</button>
+                <Button variant="primary" onClick={this.simpleAction}>Test redux action</Button>
 
                 </div>
             
