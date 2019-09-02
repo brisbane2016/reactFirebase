@@ -80,6 +80,10 @@ export default connect(undefined, mapDispatchToProps)(Header);
 
 
 /*
+// react-bootstrap
+
+
+
 <NavLink to="/" activeClassName="is-active" >form</NavLink> ||
 <NavLink to="/about">about</NavLink> ||
 <NavLink to={`/help/${id}`}>help</NavLink> ||
