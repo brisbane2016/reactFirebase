@@ -2,6 +2,7 @@ import React from 'react';
 //import Header from '../../components/Header';
 import database from '../../firebase';
 import uuid from 'uuid';
+import { connect } from 'react-redux';
 
 class Firebase extends React.Component {
     constructor(props) {
@@ -16,8 +17,8 @@ class Firebase extends React.Component {
     }
     setData = () => {
         //初始化，给 state 加上 firebase 数据库的data
-
-        database.ref('options').once('value').then((snapshot) => {
+const userid = this.props.id;
+        database.ref(`options/${userid}`).once('value').then((snapshot) => {
             const list = [];
             snapshot.forEach((childSnapshot) => {
                 list.push({
@@ -40,7 +41,8 @@ class Firebase extends React.Component {
         //一定要在 firebase里面 create new array
         // 否则会出现array 是空的问题
         const listOption = { id: uuid.v4(), name: "insertData" };
-        database.ref(`options`).push(listOption).then(
+        const userid = this.props.id;
+        database.ref(`options/${userid}`).push(listOption).then(
             (ref) => {
                 const newList = { referenceId: ref.key, ...listOption };
                 this.setData(prevState => ({
@@ -55,7 +57,8 @@ class Firebase extends React.Component {
     }
     deleteData = (id) => {
         //删除数据
-        database.ref(`options/${id}`).remove().then(
+        const userid = this.props.id;
+        database.ref(`options/${userid}/${id}`).remove().then(
             (ref) => {
                 const newData = this.state.dataset.filter(option => option.referenceId !== id);
                 this.setData(() => ({
@@ -71,7 +74,8 @@ class Firebase extends React.Component {
             name: "gary"
 
         }
-        database.ref(`options/${id}`).update(newlist).then((ref) => {
+        const userid = this.props.id;
+        database.ref(`options/${userid}/${id}`).update(newlist).then((ref) => {
 
 
             this.setState(state => {
@@ -145,4 +149,10 @@ class Firebase extends React.Component {
     }
 }
 
-export default Firebase;
+const mapStateToProps = state => ({
+    id: state.authReducer.uid
+})
+
+
+
+export default connect(mapStateToProps,undefined)(Firebase);
