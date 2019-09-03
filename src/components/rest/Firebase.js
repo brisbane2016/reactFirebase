@@ -5,16 +5,19 @@ import uuid from 'uuid';
 import { connect } from 'react-redux';
 
 class Firebase extends React.Component {
-    constructor(props) {
-        super(props);
-        this.setData();
-    }
+   
     state = {
 
         dataset: undefined,
         InsertData: undefined,
         number: 5
     }
+
+    componentDidMount() {
+        console.log('yess');
+         this.setData();
+	}
+
     setData = () => {
         //初始化，给 state 加上 firebase 数据库的data
 const userid = this.props.id;

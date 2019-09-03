@@ -10,7 +10,7 @@ import Help from '../components/rest/Help';
 import Firebase from '../components/rest/Firebase';
 import FirebaseQuery from '../components/rest/FirebaseQuery';
 import Login from "../components/Login";
-
+import RestAPI from '../components/rest/RestAPI';
 
 export const history = createBrowserHistory();
 
@@ -27,6 +27,7 @@ const AppRouter = () => (
             <PrivateRoute path="/help/:id" component={Help} />
             <PrivateRoute path="/firebase" component={Firebase} />
             <PrivateRoute path="/firebasequery" component={FirebaseQuery} />
+            <PrivateRoute path="/restAPI" component={RestAPI} />
             </Switch>
         </div>
     </Router>

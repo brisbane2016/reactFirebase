@@ -45,6 +45,7 @@ const store = configureStore();
     };
 
     firebase.auth().onAuthStateChanged((user) => {
+        console.log("firebsase check auth");
         if (user) {
             console.log('login'+user.uid);
             store.dispatch(login(user.uid));
@@ -69,6 +70,7 @@ const store = configureStore();
             history.push('/');
         }
     });
+
 
 
    // If you want your app to work offline and load faster, you can change

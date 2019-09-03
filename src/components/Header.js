@@ -48,7 +48,10 @@ const Header = ({ startLogout }) => (
 
                         </NavItem>
 
+                        <NavItem>
+                            <NavLink to='/restAPI' className="nav-link">RestAPI</NavLink>
 
+                        </NavItem>
 
                         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavItem>
